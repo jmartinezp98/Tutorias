@@ -1,0 +1,46 @@
+﻿@model Tutorias.ViewModels.LoginViewModel
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+@using (Html.BeginForm("Login", "Login", FormMethod.Post))
+{
+    <fieldset>
+        <legend>Tutorias Login DEMO</legend>
+
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        @if (@ViewBag.Message != null)
+        {
+            <div style="border: 1px solid red">
+                @ViewBag.Message
+            </div>
+        }
+        <table>
+            <tr>
+                <td>@Html.LabelFor(a => a.UserName)</td>
+                <td>@Html.TextBoxFor(a => a.UserName, new { @class = "form-control" })</td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.LabelFor(a => a.UserPassword)
+                </td>
+                <td>
+                    @Html.PasswordFor(a => a.UserPassword, new { @class = "form-control" })
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Login" class="btn btn-info" />
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    </fieldset>
+}
+
+
