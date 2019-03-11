@@ -14,6 +14,13 @@ namespace Tutorias.Controllers
         public static TutoriasDbContext dbCtx = new TutoriasDbContext();
 
         // GET: Login
+        [HttpGet]
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
         public ActionResult Login(LoginViewModel objLogin)
         {
             if (ModelState.IsValid)
