@@ -19,27 +19,49 @@
                 @ViewBag.Message
             </div>
         }
-        <table>
-            <tr>
-                <td>@Html.LabelFor(a => a.UserName)</td>
-                <td>@Html.TextBoxFor(a => a.UserName, new { @class = "form-control" })</td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.LabelFor(a => a.UserPassword)
-                </td>
-                <td>
-                    @Html.PasswordFor(a => a.UserPassword, new { @class = "form-control" })
-                </td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    <input type="submit" value="Login" class="btn btn-info" />
-                </td>
-                <td></td>
-            </tr>
-        </table>
+
+        <div align="center">
+            <img src="~/Logo/LogoTutorias.JPG" alt="TUTORIAS" width="200" height="100">
+
+            <div class="container">
+
+                <h5 class="card-title text-center">Sign In</h5>
+                <form class="form-signin">
+
+                    <div>
+                        <div>@Html.LabelFor(a => a.UserName)</div>
+
+                        <div>@Html.TextBoxFor(a => a.UserName, new { @class = "form-control" })</div>
+
+                        <!--No se debe mostrar al inicio-->
+                        <div>
+                            @Html.ValidationMessageFor(a => a.UserName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div>
+                        <div>
+                            @Html.LabelFor(a => a.UserPassword)
+                        </div>
+                        <div>
+                            @Html.PasswordFor(a => a.UserPassword, new { @class = "form-control" })
+                        </div>
+                        <!--No se debe mostrar al inicio-->
+                        <div>
+                            @Html.ValidationMessageFor(a => a.UserPassword, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div>
+                        <div>
+                        <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" style="height:50px; width:200px;">Sign in</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
     </fieldset>
 }
 
