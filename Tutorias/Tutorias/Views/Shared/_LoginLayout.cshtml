@@ -1,0 +1,60 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fot=no">
+    <!--cambio a tutorias-->
+    <title>@ViewBag.Title - Tutorias Login</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" 
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <!--Se agrego el style-->
+    <!--El url no tiene que llevar ~ -->
+    <style>
+        body {
+            background-image: url("/Backgrouds/ute.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100%;
+        }
+
+        .login{
+            color: white;
+            font-size: 50px;
+        }
+
+        footer {
+            display: block;
+            font-size: 15px;
+            color: #777;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div>
+        <div class="container body-content">
+            @RenderBody()
+
+            <hr />
+            <footer>
+                <p align="center">&copy; @DateTime.Now.Year - TeamTutorias ASP.NET</p>
+            </footer>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </div>
+</body>
+</html>

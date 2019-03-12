@@ -2,14 +2,16 @@
 
 @{
     ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
 }
 
-<h2>Login</h2>
+
 
 @using (Html.BeginForm("Login", "Login", FormMethod.Post))
 {
     <fieldset>
-        <legend>Tutorias Login DEMO</legend>
+        <legend class="login" align="center">Sign In</legend>
 
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true)
@@ -20,53 +22,43 @@
             </div>
         }
 
-        <div align="center">
-            <img src="~/Logo/LogoTutorias.JPG" alt="TUTORIAS" width="200" height="100">
+            <div align="center">
+                <div class="card card-signin my-5">
+                    <div class="card-body">
+                        @*<h5 class="card-title text-center">Sign In</h5>*@
+                        <div class="form-label-group">
+                            @Html.LabelFor(a => a.UserName)
 
-            <div class="container">
+                            @Html.TextBoxFor(a => a.UserName, new { @class = "form-control" })
 
-                <h5 class="card-title text-center">Sign In</h5>
-                <form class="form-signin">
-
-                    <div>
-                        <div>@Html.LabelFor(a => a.UserName)</div>
-
-                        <div>@Html.TextBoxFor(a => a.UserName, new { @class = "form-control" })</div>
-
-                        <!--No se debe mostrar al inicio-->
-                        <div>
+                            <!--No se debe mostrar al inicio-->
                             @Html.ValidationMessageFor(a => a.UserName, "", new { @class = "text-danger" })
                         </div>
-                    </div>
 
-                    <br />
+                        <br />
 
-                    <div>
-                        <div>
+                        <div class="form-label-group">
                             @Html.LabelFor(a => a.UserPassword)
-                        </div>
-                        <div>
+
                             @Html.PasswordFor(a => a.UserPassword, new { @class = "form-control" })
-                        </div>
-                        <!--No se debe mostrar al inicio-->
-                        <div>
+
+                            <!--No se debe mostrar al inicio-->
                             @Html.ValidationMessageFor(a => a.UserPassword, "", new { @class = "text-danger" })
                         </div>
+
+                        <br />
+
+                        <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" style="height:50px; width:200px;">Sign in</button>
+
+                        <hr class="my-4" />
+
+                        <center>
+                            <img src="~/Logo/LogoTutorias.JPG" alt="TUTORIAS" width="200" height="100">
+                        </center>
+
                     </div>
-
-
-                    <br />
-
-
-                    <div>
-                        <div>
-                            <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" style="height:50px; width:200px;">Sign in</button>
-                        </div>
-                    </div>
-
-                </form>
+                </div>
             </div>
-        </div>
 
     </fieldset>
 }
