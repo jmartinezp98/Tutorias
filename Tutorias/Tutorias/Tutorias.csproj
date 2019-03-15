@@ -162,6 +162,7 @@
     <Compile Include="ViewModels\LoginViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Backgrouds\MainPage.jpg" />
     <Content Include="Backgrouds\ute.jpg" />
     <Content Include="bin\Antlr3.Runtime.dll" />
     <Content Include="bin\Antlr3.Runtime.pdb" />
@@ -261,6 +262,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Logo\final_logo.png" />
     <Content Include="Logo\LogoTutorias.JPG" />
     <Content Include="Matrícula\301610199.jpg" />
     <Content Include="Matrícula\301710084.jpg" />
