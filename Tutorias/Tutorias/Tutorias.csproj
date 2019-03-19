@@ -250,7 +250,6 @@
     <Content Include="CURP\HEGS970102MNLRRR00.jpg" />
     <Content Include="CURP\IABY961003MNLBLL07.jpg" />
     <Content Include="CURP\LOQE980518HNLPRS06.jpg" />
-    <Content Include="CURP\LUAE740126MTSCYR06.jpeg" />
     <Content Include="CURP\LURY990211MNLNJS08.jpg" />
     <Content Include="CURP\MAPJ981216HNLRGN09.jpg" />
     <Content Include="CURP\PEMF970418HNLRRR13.jpg" />
@@ -277,7 +276,6 @@
     <Content Include="Matrícula\301710709.jpg" />
     <Content Include="Matrícula\301710730.jpg" />
     <Content Include="Matrícula\301710861.jpg" />
-    <Content Include="Matrícula\UE1345.jpeg" />
     <Content Include="obj\Debug\Tutorias.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\Tutorias.dll" />
     <Content Include="obj\Debug\Tutorias.pdb" />
