@@ -79,6 +79,89 @@ namespace Tutorias.Controllers
 
                 #endregion
 
+                #region OBTENER GRAFICA
+                
+                //se va a obtener el estudiante y la cantidad de vulnerabilidades que tiene
+                var queryVulnerables = (from s in dbCtx.Students
+                                        join sv in dbCtx.StudentVulnerabilities on s.ID equals sv.StudentID
+                                        join cg in dbCtx.ClassGroups on s.ClassGroupID equals cg.ID
+                                        where @group == cg.GroupID
+                                        group sv by s.ID into g
+                                        select new
+                                        {
+                                            student = g.Key,
+                                            //como se agrupa por estudiante va a sumar sus vulnerabilidades
+                                            vulnerable = g.Sum(x => x.VulStatus)
+                                        }).ToList();
+
+                //Recorrer el resultado de la consulta anteriormente realizada 
+                //separar vulnerables y no vulnerables
+                int vulnerables = 0;
+                int noVulnerables = 0;
+                foreach (var item in queryVulnerables)
+                {
+                    //si el alumno tiene una o mas vulnerabilidades entonces se cuenta en los vulnerables
+                    if (item.vulnerable > 0)
+                    {
+                        vulnerables++;
+                    }
+                    //si el alumno no tiene vulnerabilidades entonces se cuenta en los no vulnerables
+                    if (item.vulnerable == 0)
+                    {
+                        noVulnerables++;
+                    }
+                }
+                
+                //guardamos los resultados en viewData para usarlos en la vista
+                ViewData["Vulnerables"] = vulnerables;
+                ViewData["NoVulnerables"] = noVulnerables;
+
+                //para el drilldown vamos a ver cuantos alumnos hay por vulnerabilidad
+                var queryVulnerablesDetail = (from sv in dbCtx.StudentVulnerabilities
+                                             join v in dbCtx.Vulnerabilities on sv.VulnerabilityID equals v.ID
+                                             join s in dbCtx.Students on sv.StudentID equals s.ID
+                                             join cg in dbCtx.ClassGroups on s.ClassGroupID equals cg.ID
+                                             //se contaran solo las del grupo y que tengan mas de 1
+                                             where @group == cg.GroupID && sv.VulStatus == 1
+                                             group sv by v.Description into g
+                                             select new
+                                             {
+                                                 vulnerability = g.Key,
+                                                 quantity = g.Count()
+                                             }).ToList();
+
+                //variables para almacenar la cantidad de alumnos por vulnerabilidad
+                //se inicia en 0 por que si no hay alumnos entonces no aparecen en el query
+                int academica = 0;
+                int economica = 0;
+                int psicologica = 0;
+                int transporte = 0;
+                foreach(var vul in queryVulnerablesDetail)
+                {
+                    //la cantidad se almacena dependiendo la vulnerabilidad
+                    if (vul.vulnerability.ToString() == "Académica")
+                    {
+                        academica = vul.quantity;
+                    }
+                    if (vul.vulnerability.ToString() == "Económica")
+                    {
+                        economica = vul.quantity;
+                    }
+                    if (vul.vulnerability.ToString() == "Psicológica")
+                    {
+                        psicologica = vul.quantity;
+                    }
+                    if (vul.vulnerability.ToString() == "Transporte")
+                    {
+                        transporte = vul.quantity;
+                    }
+                }
+                //guardamos los resultados en viewData para usarlos en la vista
+                ViewData["Transporte"] = transporte;
+                ViewData["Psicológica"] = psicologica;
+                ViewData["Económica"] = economica;
+                ViewData["Académica"] = academica;
+                #endregion
 
                 //retornamos la vista con el tutor a usar
                 return View(objTutor);
