@@ -1,7 +1,137 @@
 ﻿
+@model Tutorias.ViewModels.TutorViewModel
+
 @{
-    ViewBag.Title = "MainPage";
+    Layout = "~/Views/Shared/_MainPageLayout.cshtml";
 }
 
-<h2>MainPage</h2>
+<div class="card border-0 shadow my-5">
+    <div class="card-body p-5">
+
+        <div style="padding-left:16px">
+            <h1 style="text-align:center;">@Session["UserGroup"].ToString()</h1>
+
+        </div>
+
+
+        <center>
+            <img src="~/PersonasCURP/@Model.PhotoPath" alt="Tutor" width="112" height="112" />
+        </center>
+
+        <hr>
+
+        <table border="1" style="margin: 0 auto; width: 100%;">
+
+            <colgroup>
+                <col style="width: 20%" />
+                <col style="width: 20%" />
+                <col style="width: 20%" />
+            </colgroup>
+            <tr>
+                <th>Datos Generales del Tutor</th>
+
+                <th>Datos de Contacto</th>
+            </tr>
+            <tr>
+
+                <td>
+                    @Html.LabelFor(t => Model.FirstMidName): @Html.DisplayFor(t => Model.FirstMidName)<br>
+                    @Html.LabelFor(t => Model.LastNameP): @Html.DisplayFor(t => Model.LastNameP)<br>
+                    @Html.LabelFor(t => Model.LastNameM): @Html.DisplayFor(t => Model.LastNameM)<br>
+                    @Html.LabelFor(t => Model.EmployeeID): @Html.DisplayFor(t => Model.EmployeeID)<br>
+                    @Html.LabelFor(t => Model.RFC): @Html.DisplayFor(t => Model.RFC)<br>
+                    @Html.LabelFor(t => Model.CURP): @Html.DisplayFor(t => Model.CURP)<br>
+                    @Html.LabelFor(t => Model.MaritalStatus): @Html.DisplayFor(t => Model.MaritalStatus)<br>
+
+                    </td>
+                <td>
+                    @Html.LabelFor(t => Model.EmergencyPhone): @Html.DisplayFor(t => Model.EmergencyPhone)<br>
+                    @Html.LabelFor(t => Model.PersonalPhone): @Html.DisplayFor(t => Model.PersonalPhone)<br>
+                    @Html.LabelFor(t => Model.PersonalEmail): @Html.DisplayFor(t => Model.PersonalEmail)<br>
+                    @Html.LabelFor(t => Model.AcademicEmail): @Html.DisplayFor(t => Model.AcademicEmail)
+                </td>
+
+                <td colspan="2">
+                    <script src="~/Content/highcharts.js"></script>
+                    <script src="~/Content/data.js"></script>
+                    <script src="~/Content/drilldown.js"></script>
+                    <div id="container" style="min-width: 310px; max-width: 600px; height: 400px; margin: 0 auto"></div>
+                    <script type="text/javascript">
+                            Highcharts.chart('container', {
+                                chart: {
+                                    type: 'pie'
+                                },
+                                title: {
+                                    text: 'Estadisticas del grupo'
+                                },
+                                subtitle: {
+                                    text: 'Seleccione alumnos vulnerables para ver las estadísticas'
+                                },
+                                plotOptions: {
+                                    series: {
+                                        dataLabels: {
+                                            enabled: true,
+                                            format: '{point.name}: {point.y:.1f}%'
+                                        }
+                                    }
+                                },
+                                tooltip: {
+                                    headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+                                    pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+                                },
+
+                                "series": [
+                                    {
+                                        "name": "General",
+                                        "colorByPoint": true,
+                                        "data": [
+                                            {
+                                                "name": "Vulnerables",
+                                                "y": @ViewData["Vulnerables"],
+                                                "drilldown": "Vulnerables"
+                                            },
+                                            {
+                                                "name": "NoVulnerables",
+                                                "y": @ViewData["NoVulnerables"],
+                                                "drilldown": null
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "drilldown": {
+                                    "series": [
+                                        {
+                                            "name": "Vulnerables",
+                                            "id": "Vulnerables",
+                                            "data": [
+                                                [
+                                                    "Académica",
+                                                    @ViewData["Académica"]
+                                                ],
+                                                [
+                                                    "Económica",
+                                                    @ViewData["Económica"]
+                                                ],
+                                                [
+                                                    "Psicológica",
+                                                    @ViewData["Psicológica"]
+                                                ],
+                                                [
+                                                    "Transporte",
+                                                    @ViewData["Transporte"]
+                                                ],
+                                            ]
+                                        }
+                                    ]
+                                }
+                            });
+                    </script>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+</div>
+
+
 
