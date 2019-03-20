@@ -67,7 +67,7 @@ namespace Tutorias.Controllers
                     //guardamos en una variable session el GroupID
                     Session["UserGroup"] = group.GroupID.ToString();
                     //manda a la pagina de index
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("MainPage", "MainPage");
                 }
             }
             //si no se inicio sesion correctamente entonces segirá en la pagina de login 
