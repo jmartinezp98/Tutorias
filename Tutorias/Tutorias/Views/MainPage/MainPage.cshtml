@@ -15,7 +15,7 @@
 
 
         <center>
-            <img src="~/CURP/LUAE740126MTSCYR06.jpeg" alt="Tutor" width="112" height="112" />
+            <img src="~/CURP/@Model.PhotoPath" alt="Tutor" width="112" height="112" />
         </center>
 
         <hr>
@@ -50,7 +50,6 @@
                     @Html.LabelFor(t => Model.PersonalEmail): @Html.DisplayFor(t => Model.PersonalEmail)<br>
                     @Html.LabelFor(t => Model.AcademicEmail): @Html.DisplayFor(t => Model.AcademicEmail)
                 </td>
-                <tr>
 
                 <td colspan="2">
                     <script src="~/Content/highcharts.js"></script>
@@ -127,9 +126,7 @@
                                 }
                             });
                     </script>
-                    
                 </td>
-                    </tr>
             </tr>
         </table>
 
