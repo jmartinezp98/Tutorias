@@ -340,6 +340,7 @@
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Shared\_LoginLayout.cshtml" />
     <Content Include="Views\MainPage\MainPage.cshtml" />
+    <Content Include="Views\Shared\_MainPageLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
