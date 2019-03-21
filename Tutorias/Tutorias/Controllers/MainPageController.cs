@@ -35,7 +35,7 @@ namespace Tutorias.Controllers
                                  }).SingleOrDefault();
 
                 //al CURP se le agrega el .jpg
-                string path = queryFoto.CURP.ToString() + ".JPG";
+                string path = queryFoto.CURP.ToString() + ".JPEG";
 
                 //se agrega al tutor
                 objTutor.PhotoPath = path;
