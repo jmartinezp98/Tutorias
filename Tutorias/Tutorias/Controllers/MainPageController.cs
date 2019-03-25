@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -79,8 +81,58 @@ namespace Tutorias.Controllers
 
                 #endregion
 
+                #region EDITAR VULNERABILIDADES ACADEMICAS DE LOS ALUMNOS
+                //el query va a buscar todos los alumnos que tengan alguna unidad con NA de cualquier materia
+                var queryStudents = (from s in dbCtx.Students
+                                     join cg in dbCtx.ClassGroups on s.ClassGroupID equals cg.ID
+                                     join sc in dbCtx.StudentCourses on s.ID equals sc.StudentID
+                                     where @group == cg.GroupID && sc.Grade == "NA"
+                                     select new
+                                     {
+                                         student = sc.StudentID,
+                                         name = s.FirstMidName + " " + s.LastNameP + " " + s.LastNameM
+                                     }).ToList();
+
+                //por cada estudiante con alguna unidad en NA
+                foreach (var student in queryStudents)
+                {
+                    //se va a buscar el registro en la tabla de vulnerabilidades
+                    var studentVul = (from sv in dbCtx.StudentVulnerabilities
+                                      where sv.StudentID == student.student && sv.VulnerabilityID == 1
+                                      select sv).SingleOrDefault();
+
+                    //si el estudiante no tiene vulnerabilidad academica marcada
+                    if (studentVul.VulStatus == 0)
+                    {
+                        //se va a cambiar a vulnerable academico
+                        studentVul.VulStatus = 1;
+                        //se le va a poner un comentario default que el tutor despues podrá cambiar
+                        //si el estudiante ya era vulnerable entonces el comentario que haya puesto el tutor no va a cambiar, por eso la validacion del if
+                        studentVul.VulComments = "Estudiante con NA en alguna unidad";
+
+                        //se guardan los cambios
+                        dbCtx.Entry(studentVul).State = EntityState.Modified;
+                        dbCtx.SaveChanges();
+
+                        //LOG
+                        //Buscar la carpeta en el proyecto
+                        var pathLog = Server.MapPath("~") + @"Files";
+                        //nombre del archivo
+                        //como aparecia FilesLog.txt se le agregó la diagonal
+                        var fileName = "/Log.txt";
+
+                        StreamWriter sw = new StreamWriter(pathLog + fileName, true);
+                        //Permite escribir en el archivo .txt
+                        sw.WriteLine("Metodo: MainPageVulnerabilitiesEdit -" + DateTime.Now + "- Se editó la vulnerabilidad academica del estudiante: " + student.name);
+                        //cierra la conexion
+                        sw.Close();
+                    }
+                }
+
+                #endregion
+
                 #region OBTENER GRAFICA
-                
+
                 //se va a obtener el estudiante y la cantidad de vulnerabilidades que tiene
                 var queryVulnerables = (from s in dbCtx.Students
                                         join sv in dbCtx.StudentVulnerabilities on s.ID equals sv.StudentID
