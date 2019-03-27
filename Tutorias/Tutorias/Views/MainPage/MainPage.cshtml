@@ -67,6 +67,9 @@
                                 subtitle: {
                                     text: 'Seleccione alumnos vulnerables para ver las estadísticas'
                                 },
+                                lang: {
+                                    drillUpText: '<<'
+                                },
                                 plotOptions: {
                                     series: {
                                         dataLabels: {
@@ -101,6 +104,13 @@
                                     }
                                 ],
                                 "drilldown": {
+                                    drillUpButton: {
+                                        relativeTo: 'spacingBox',
+                                        Position: {
+                                            y: 0,
+                                            x: 0
+                                        }
+                                    },
                                     "series": [
                                         {
                                             "name": "Vulnerables",
