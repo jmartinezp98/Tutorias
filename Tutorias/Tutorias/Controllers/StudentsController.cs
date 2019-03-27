@@ -108,5 +108,33 @@ namespace Tutorias.Controllers
                 return RedirectToAction("Login", "Login");
             }
         }
+
+        //Vamos a obtener como parametros la matricula del estudante selecionado 
+        public ActionResult Student(StudentsViewModel student)
+        {
+            //Se valida si se ha iniciado sesion
+            if(Session["UserGrup"]!= null)
+            {
+                //se guarda la matricula del estudiante consultado 
+                string matricula = student.Matricula.ToString();
+
+                //Se crea un student del viewModel
+                StudentsViewModel objEstudiante = new StudentsViewModel();
+
+
+                //Se retorna la vista con el estudiante de StudentViewModel
+                return View(objEstudiante);
+
+
+
+            }
+            else
+            {
+                return RedirectToAction("Login", "Login");
+        }
+}
+
+
+
     }
 }
