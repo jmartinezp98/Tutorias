@@ -8,8 +8,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fot=no">
-    <title>@ViewBag.Title - Tutorias Main Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fot=no" />
+    <title>@ViewBag.Title - Tutorias Students</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -17,6 +17,25 @@
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
     <style type="text/css">
+
+
+
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 8px solid #dddddd;
+            text-align: center;
+            padding: 4px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+
 
         html, body {
             height: 100%;
@@ -35,7 +54,7 @@
         }
 
         body {
-            background: url("/Images/Backgrounds/MainPage.jpg")no-repeat center center fixed;
+            background: url("/Images/Backgrounds/StudentsPage.jpg")no-repeat center center fixed;
             background-size: cover;
             height: 100%;
         }
@@ -93,7 +112,6 @@
             </div>
         </div>
     </nav>
-
     <div>
         <div class="container">
             @RenderBody()

@@ -1,7 +1,66 @@
-﻿
+﻿@model IEnumerable<Tutorias.ViewModels.StudentsViewModel>
+
 @{
     ViewBag.Title = "Students";
+    Layout = "~/Views/Shared/_StudentsLayout.cshtml";
 }
+<div class="card border-0 shadow my-5">
+    <div class="card-body p-5">
 
-<h2>Students</h2>
+        <div style="padding-left:16px">
+            <br />
+            <h1 style="text-align:center;">@ViewBag.Title</h1>
+        </div>
+
+        <hr>
+
+
+
+
+        <table class="table">
+            <tr>
+                <th>
+                    Matricula
+                </th>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Vulnerabilidades
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Matricula)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nombre)
+                    </td>
+                    <td>
+                        @if (item.Vul1 > 0)
+                        {
+                            <img src="~/Images/Vulnerabilidades/acade.png" alt="@Html.DisplayFor(i => item.Vul1)" width="30" height="30" />
+                        }
+                        @if (item.Vul2 > 0)
+                        {
+                            <img src="~/Images/Vulnerabilidades/econo.png" alt="@Html.DisplayFor(i => item.Vul2)" width="30" height="30" />
+                        }
+                        @if (item.Vul3 > 0)
+                        {
+                            <img src="~/Images/Vulnerabilidades/psico.png" alt="@Html.DisplayFor(i => item.Vul3)" width="30" height="30" />
+                        }
+                        @if (item.Vul4 > 0)
+                        {
+                            <img src="~/Images/Vulnerabilidades/trans.png" alt="@Html.DisplayFor(i => item.Vul4)" width="30" height="30" />
+                        }
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
 

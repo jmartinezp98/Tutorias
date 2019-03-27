@@ -19,3 +19,9 @@ Metodo: Login -25/03/2019 12:19:45 p. m.- Entró el tutor con Usuario : Eriteach
 Metodo: MainPageVulnerabilitiesEdit -25/03/2019 12:21:09 p. m.- Se editó la vulnerabilidad academica del estudiante: Ricardo Esquivel  Ramirez
 Metodo: MainPageVulnerabilitiesEdit -25/03/2019 12:21:09 p. m.- Se editó la vulnerabilidad academica del estudiante: Luis Daniel  Hernández  Ontiveros
 Metodo: MainPageVulnerabilitiesEdit -25/03/2019 12:21:09 p. m.- Se editó la vulnerabilidad academica del estudiante: José Francisco Pérez  Marfileño
+Metodo: Login -27/03/2019 12:13:12 p. m.- Entró el tutor con Usuario : Eriteach
+Metodo: Login -27/03/2019 12:23:50 p. m.- Entró el tutor con Usuario : Eriteach
+Metodo: MainPageVulnerabilitiesEdit -27/03/2019 12:23:52 p. m.- Se editó la vulnerabilidad academica del estudiante: Ricardo Esquivel  Ramirez
+Metodo: MainPageVulnerabilitiesEdit -27/03/2019 12:23:52 p. m.- Se editó la vulnerabilidad academica del estudiante: Luis Daniel  Hernández  Ontiveros
+Metodo: MainPageVulnerabilitiesEdit -27/03/2019 12:23:52 p. m.- Se editó la vulnerabilidad academica del estudiante: José Francisco Pérez  Marfileño
+Metodo: Login -27/03/2019 12:35:36 p. m.- Entró el tutor con Usuario : Eriteach
