@@ -25,3 +25,4 @@ Metodo: MainPageVulnerabilitiesEdit -27/03/2019 12:23:52 p. m.- Se editó la vul
 Metodo: MainPageVulnerabilitiesEdit -27/03/2019 12:23:52 p. m.- Se editó la vulnerabilidad academica del estudiante: Luis Daniel  Hernández  Ontiveros
 Metodo: MainPageVulnerabilitiesEdit -27/03/2019 12:23:52 p. m.- Se editó la vulnerabilidad academica del estudiante: José Francisco Pérez  Marfileño
 Metodo: Login -27/03/2019 12:35:36 p. m.- Entró el tutor con Usuario : Eriteach
+Metodo: Login -27/03/2019 01:08:22 p. m.- Entró el tutor con Usuario : Eriteach

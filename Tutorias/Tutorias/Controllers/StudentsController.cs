@@ -119,20 +119,116 @@ namespace Tutorias.Controllers
                 string matricula = student.Matricula.ToString();
 
                 //Se crea un student del viewModel
-                StudentsViewModel objEstudiante = new StudentsViewModel();
+                StudentViewModel objEstudiante = new StudentViewModel();
 
+                #region OBTENER FOTO DE ESTUDIANTE EN BASE A MATRICULA
+
+                //como tenemos las fotos guardadas con matricula no necesitamos hacer un query
+                //a la matricula se le agrega el .jpg
+                string path = student.Matricula.ToString() + ".jpg";
+
+                //se agrega al ViewModel
+                objEstudiante.Registration = matricula;
+                objEstudiante.PhotoPath = path;
+
+                #endregion
+
+                #region OBTENER DATOS ESTUDIANTE EN BASE A MATRICULA
+
+                //se obtiene la informacion del alumno
+                var queryStudent = (from s in dbCtx.Students
+                                    join cg in dbCtx.ClassGroups on s.ClassGroupID equals cg.ID
+                                    join ms in dbCtx.MaritalStatuses on s.MaritalStatusID equals ms.ID
+                                    join c in dbCtx.Careers on s.CareerID equals c.ID
+                                    join m in dbCtx.Modalities on s.ModalityID equals m.ID
+                                    join tu in dbCtx.Turns on s.TurnID equals tu.ID
+                                    join si in dbCtx.Situations on s.SituationID equals si.ID
+                                    where s.Registration == matricula
+                                    select new
+                                    {
+                                        nombre = s.FirstMidName,
+                                        apellidoP = s.LastNameP,
+                                        apellidoM = s.LastNameM,
+                                        birthDate = s.BirthDate,
+                                        curp = s.CURP,
+                                        rfc = s.RFC,
+                                        maritalStatus = ms.Description,
+                                        perPhone = s.PersonalPhone,
+                                        perEmail = s.PersonalEmail,
+                                        emerPhone = s.EmergencyPhone,
+                                        academEmail = s.AcademicEmail,
+                                        carrera = c.Description,
+                                        modalidad = m.Description,
+                                        turno = tu.Description,
+                                        cuatrimestre = cg.Term,
+                                        situacion = si.Description,
+                                        seccion = cg.Section
+                                    }).SingleOrDefault();
+
+                //se le agregan los valores
+                objEstudiante.FirstMidName = queryStudent.nombre;
+                objEstudiante.LastNameP = queryStudent.apellidoP;
+                objEstudiante.LastNameM = queryStudent.apellidoM;
+                objEstudiante.BirthDate = queryStudent.birthDate;
+                objEstudiante.CURP = queryStudent.curp;
+                objEstudiante.RFC = queryStudent.rfc;
+                objEstudiante.MaritalStatus = queryStudent.maritalStatus;
+                objEstudiante.PersonalPhone = queryStudent.perPhone;
+                objEstudiante.PersonalEmail = queryStudent.perEmail;
+                objEstudiante.EmergencyPhone = queryStudent.emerPhone;
+                objEstudiante.AcademicEmail = queryStudent.academEmail;
+                objEstudiante.Career = queryStudent.carrera;
+                objEstudiante.Modality = queryStudent.modalidad;
+                objEstudiante.Turn = queryStudent.turno;
+                objEstudiante.Term = queryStudent.cuatrimestre;
+                objEstudiante.Section = queryStudent.seccion;
+                objEstudiante.Situation = queryStudent.situacion;
+
+                //se agregan al objEstudiante las vulnerabilidades del parametro student
+                objEstudiante.Vul1 = student.Vul1;
+                objEstudiante.Vul2 = student.Vul2;
+                objEstudiante.Vul3 = student.Vul3;
+                objEstudiante.Vul4 = student.Vul4;
+
+
+                #endregion
+
+                #region OBTENER MATERIAS 
+                // se buscan las materias que lleva el alumno
+                var queryMaterias = (from sc in dbCtx.StudentCourses
+                                     join c in dbCtx.Courses on sc.CourseID equals c.ID
+                                     join s in dbCtx.Students on sc.StudentID equals s.ID
+                                     where s.Registration == matricula
+                                     //para obtener solo una vez la materia y no por cada unidad
+                                     group sc by c.Description into g
+                                     select new
+                                     {
+                                         materia = g.Key
+                                     }).ToList();
+
+
+                //lista para almacenar las materias
+                List<string> materias = new List<string>();
+
+                //por cada materia se agrega un elemento a la lista
+                foreach (var materia in queryMaterias)
+                {
+                    materias.Add(materia.materia);
+                }
+
+                //se guarda la lista en un view bag
+                ViewBag.Materias = materias;
+
+                #endregion
 
                 //Se retorna la vista con el estudiante de StudentViewModel
                 return View(objEstudiante);
-
-
-
             }
             else
             {
                 return RedirectToAction("Login", "Login");
+            }
         }
-}
 
 
 
