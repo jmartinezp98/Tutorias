@@ -20,6 +20,8 @@
         <table class="table">
             <tr>
                 <th>
+                    </th>
+                <th>
                     Matricula
                 </th>
                 <th>
@@ -33,6 +35,10 @@
             @foreach (var item in Model)
             {
                 <tr>
+                    <td style="font-size:18px;">
+                        @Html.AtionLink("+","Student","Students",item,null).
+                    </td>
+                        
                     <td>
                         @Html.DisplayFor(modelItem => item.Matricula)
                     </td>
