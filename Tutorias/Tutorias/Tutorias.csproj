@@ -351,6 +351,7 @@
     <Content Include="Views\Shared\_MainPageLayout.cshtml" />
     <Content Include="Views\Students\Students.cshtml" />
     <Content Include="Views\Shared\_StudentsLayout.cshtml" />
+    <Content Include="Views\Students\Student.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
