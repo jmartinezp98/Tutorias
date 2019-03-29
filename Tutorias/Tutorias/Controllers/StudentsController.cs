@@ -113,19 +113,26 @@ namespace Tutorias.Controllers
         public ActionResult Student(StudentsViewModel student)
         {
             //Se valida si se ha iniciado sesion
-            if(Session["UserGrup"]!= null)
+            if(Session["UserGroup"]!= null)
             {
-                //se guarda la matricula del estudiante consultado 
-                string matricula = student.Matricula.ToString();
+
 
                 //Se crea un student del viewModel
                 StudentViewModel objEstudiante = new StudentViewModel();
+
+                //Se guarda el nombre y la matricula 
+                objEstudiante.Nombre = student.Nombre;
+                objEstudiante.Matricula = student.Matricula;
+
+                //Se guarda la matricula en una variable
+                string matricula = student.Matricula;
+
 
                 #region OBTENER FOTO DE ESTUDIANTE EN BASE A MATRICULA
 
                 //como tenemos las fotos guardadas con matricula no necesitamos hacer un query
                 //a la matricula se le agrega el .jpg
-                string path = student.Matricula.ToString() + ".jpg";
+                string path = matricula + ".jpg";
 
                 //se agrega al ViewModel
                 objEstudiante.Registration = matricula;

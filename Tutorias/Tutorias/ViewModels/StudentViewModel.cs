@@ -8,9 +8,13 @@ namespace Tutorias.ViewModels
 {
     public class StudentViewModel
     {
-        [Required(ErrorMessage = "El campo Registration es obligatorio")]
-        [Display(Name = "Matricula del alumno")]
-        public string Registration { get; set; }
+        [Required(ErrorMessage = "The field Matricula is requiered")]
+        [Display(Name ="Matricula")]
+        public string Matricula {get; set;}
+
+        [Required(ErrorMessage = "The field Nombre is requiered")]
+        [Display(Name ="Nombre")]
+        public string Nombre {get; set;}
 
         [Required(ErrorMessage = "El campo FirstMidName es obligatorio")]
         [Display(Name = "Nombre")]
