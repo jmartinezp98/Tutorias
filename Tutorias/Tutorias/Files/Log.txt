@@ -46,3 +46,7 @@ Metodo: Login -29/03/2019 10:30:22 a. m.- Entró el tutor con Usuario : Eriteach
 Metodo: Login -29/03/2019 11:56:40 a. m.- Entró el tutor con Usuario : Eriteach
 Metodo: Login -29/03/2019 11:59:15 a. m.- Entró el tutor con Usuario : Eriteach
 Metodo: Login -29/03/2019 12:04:50 p. m.- Entró el tutor con Usuario : Eriteach
+Metodo: Login -29/03/2019 12:14:40 p. m.- Entró el tutor con Usuario : Eriteach
+Metodo: Login -29/03/2019 12:19:51 p. m.- Entró el tutor con Usuario : Eriteach
+Metodo: Login -29/03/2019 12:24:08 p. m.- Entró el tutor con Usuario : Eriteach
+Metodo: Login -29/03/2019 12:27:59 p. m.- Entró el tutor con Usuario : Eriteach
