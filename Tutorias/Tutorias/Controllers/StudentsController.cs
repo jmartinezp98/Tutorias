@@ -237,7 +237,71 @@ namespace Tutorias.Controllers
             }
         }
 
+        public ActionResult Course(string materia, string registration)
+        {
+            //solo si se ha iniciado sesion 
+            if(Session["UserGroup"] != null)
+            {
+                //crear courseViewModel
+                CourseViewModel objCourse = new CourseViewModel();
+
+                //la matricula se guarda en un TempData para poder regresar al alumno por medio del redirectToStudent
+                TempData["Registration"] = registration;
+
+                #region OBTENER MATERIA
+
+                //Buscar como validar tambien la matricula del alumno por si hay dos materias que se llaman igual pero diferente DIF instructor
+                //Query para obtener info de CourseViewModel
+                var QuerryMateria = (from c in dbCtx.Courses
+                                     where c.Description == materia
+                                     select new 
+                                     {
+                                         id = c.ID,
+                                         materia = c.Description,
+                                         maestro = c.Instructor
+                                     }).SingleOrDefault();
+                //variable para guardar id de materia 
+                int idMateria = QuerryMateria.id;
+
+                //Poner valores 
+                objCourse.Materia = QuerryMateria.materia;
+                objCourse.Maestro = QuerryMateria.maestro;
+
+                StringBuilder titulo = new StringBuilder();
+
+                titulo.AppendLine("'" + QuerryMateria.materia + "'");
+
+                string TituloMateria = titulo.ToString();
+                 //se guarda en un viewBag para usarlo en el view  
+                 //ViewBag.Unidades = unidades
+                 ViewData["Titulo"] = TituloMateria;
+
+
+                StringBuilder subtitulo = new StringBuilder();
+
+                subtitulo.AppendLine("'Instructor: '" + QuerryMateria.maestro + "'");
+
+                string SubtituloMaestro = subtitulo.ToString();
+                //se guardan en un ciewBag para usarlo en el view
+                //ViewBag.Unidades = unidades;
+                ViewData["Subtitulo"] = SubtituloMaestro:
+                #endregion
+               
+                //Se retorna la vista 
+                return View(objCourse);
+                
+            }
+            else
+            {
+                //si no se ha hecho login entonces regresa al login
+                return RedirectToAction("Login","Login");
+            }
+
+        }
+
+
 
 
     }
 }
+
