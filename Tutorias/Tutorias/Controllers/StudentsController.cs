@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Highsoft.Web.Mvc.Charts;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using Tutorias.Models;
@@ -267,26 +269,109 @@ namespace Tutorias.Controllers
                 objCourse.Materia = QuerryMateria.materia;
                 objCourse.Maestro = QuerryMateria.maestro;
 
-                StringBuilder titulo = new StringBuilder();
-
-                titulo.AppendLine("'" + QuerryMateria.materia + "'");
-
-                string TituloMateria = titulo.ToString();
-                 //se guarda en un viewBag para usarlo en el view  
-                 //ViewBag.Unidades = unidades
-                 ViewData["Titulo"] = TituloMateria;
-
-
-                StringBuilder subtitulo = new StringBuilder();
-
-                subtitulo.AppendLine("'Instructor: '" + QuerryMateria.maestro + "'");
-
-                string SubtituloMaestro = subtitulo.ToString();
-                //se guardan en un ciewBag para usarlo en el view
-                //ViewBag.Unidades = unidades;
-                ViewData["Subtitulo"] = SubtituloMaestro:
                 #endregion
-               
+
+                #region OBTENER UNIDADES
+
+                //se consultan las unidades en la base de datos
+                var queryUnidades = (from sc in dbCtx.StudentCourses
+                                     join c in dbCtx.Courses on sc.CourseID equals c.ID
+                                     join s in dbCtx.Students on sc.StudentID equals s.ID
+                                     where c.ID == idMateria && s.Registration == registration
+                                     orderby sc.Unit ascending
+                                     group sc by sc.Unit into g
+                                     select new
+                                     {
+                                         unidad = g.Key
+                                     }).ToList();
+
+                //se crea una lista donde se almacenaran las unidades 
+                List<string> unidades = new List<string>();
+
+                foreach (var unit in queryUnidades)
+                {
+                    //se crea el string que se va a guardar ej. "Unidad 1"
+                    string unidad = "Unidad " + unit.unidad.ToString();
+
+                    //se agrega a la lista
+                    unidades.Add(unidad);
+                }
+
+                //se guarda en un viewData para usarlo en el view
+                ViewData["Unidades"] = unidades;
+
+                #endregion
+
+                #region OBTENER COLUMNAS
+
+                //se crea una lista de tipo Column para guardar las columnas
+                List<Column> columns = new List<Column>();
+
+                //por cada unidad habrá una columna
+                foreach (var unit in queryUnidades)
+                {
+                    //se crea una columna
+                    Column columna = new Column();
+
+                    //query para obtener la calificacion
+                    var queryCalificacion = (from sc in dbCtx.StudentCourses
+                                             join c in dbCtx.Courses on sc.CourseID equals c.ID
+                                             join s in dbCtx.Students on sc.StudentID equals s.ID
+                                             //se busca la calificacion de la unidad actual
+                                             //que corresponda a la materia y estudiantes actuales
+                                             where c.ID == idMateria && s.Registration == registration && sc.Unit == unit.unidad
+                                             select new
+                                             {
+                                                 calificacion = sc.Grade
+                                             }).FirstOrDefault();
+
+                    switch (queryCalificacion.calificacion)
+                    {
+                        case "0":
+                            columna.name = "Pendiente";
+                            columna.color = "blue";
+                            columna.y = null;
+                            break;
+
+                        case "NA":
+                            columna.name = "No aprobado";
+                            columna.color = "#FF0000";
+                            columna.y = 0;
+                            break;
+
+                        case "8":
+                            columna.name = "Suficiente";
+                            columna.color = "#FF8000";
+                            columna.y = 1;
+                            break;
+
+                        case "9":
+                            columna.name = "Regular";
+                            columna.color = "#FFFF00";
+                            columna.y = 2;
+                            break;
+
+                        case "10":
+                            columna.name = "Excelente";
+                            columna.color = "#80FF00";
+                            columna.y = 3;
+                            break;
+                    }
+
+                    //se agrega la columna a la lista
+                    columns.Add(columna);
+                }
+
+                //Se crea la lista de columnas
+                List<ColumnSeriesData> ColumnData = new List<ColumnSeriesData>();
+
+                //se agregan a la lista
+                columns.ForEach(p => ColumnData.Add(new ColumnSeriesData { Name = p.name, Color = p.color, Y = p.y }));
+                //la lista de columnas se guarda en un viewBag
+                ViewData["Columnas"] = ColumnData;
+
+                #endregion
+
                 //Se retorna la vista 
                 return View(objCourse);
                 

@@ -1,7 +1,7 @@
 ﻿@model Tutorias.ViewModels.StudentViewModel
 
 @{
-    ViewBag.Title = "Student";
+    ViewBag.Title = Model.Nombre;
     Layout = "~/Views/Shared/_StudentLayout.cshtml";
 }
 
@@ -94,7 +94,7 @@
 
         </table>
 
-        <table border="1" style="margin; 0 auto; width: 100%">
+        <table border="1" style="margin: 0 auto; width: 100%">
 
             <colgroup>
                 <col style="width: 20%" />
