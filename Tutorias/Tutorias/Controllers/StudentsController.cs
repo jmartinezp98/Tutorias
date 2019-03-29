@@ -135,7 +135,7 @@ namespace Tutorias.Controllers
                 string path = matricula + ".jpg";
 
                 //se agrega al ViewModel
-                objEstudiante.Registration = matricula;
+                objEstudiante.Matricula = matricula;
                 objEstudiante.PhotoPath = path;
 
                 #endregion

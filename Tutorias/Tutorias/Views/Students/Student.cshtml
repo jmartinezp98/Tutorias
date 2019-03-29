@@ -1,7 +1,153 @@
-﻿
+﻿@model Tutorias.ViewModels.StudentViewModel
 @{
-    ViewBag.Title = "Student";
+    ViewBag.Title = Model.Nombre;
 }
 
 <h2>Student</h2>
 
+<div class="card border-0 shadow my-5">
+    <div class="card-body p-5">
+
+        <div style="padding-left:16px">
+            <h1 style="text-align:center;">@Session["UserGroup"].ToString()</h1>
+
+        </div>
+
+
+        <center>
+            <img src="~/Images/Matrícula/@Model.PhotoPath" alt="Alumno" width="112" height="112" />
+        </center>
+
+        <hr>
+
+        <table border="1" style="margin: 0 auto; width: 100%">
+
+            <colgroup>
+                <col style="width: 20%" />
+                <col style="width: 20%" />
+            </colgroup>
+
+            <tr>
+                <th>
+                    Datos Generales del Alumno
+                </th>
+                <th>
+                    Vulnerabilidad
+                </th>
+            </tr>
+
+            <tr>
+                <td>
+                    @Html.LabelFor(s => Model.FirstMidName): @Html.DisplayFor(s => Model.FirstMidName)<br>
+                    @Html.LabelFor(s => Model.LastNameP): @Html.DisplayFor(s => Model.LastNameP)<br>
+                    @Html.LabelFor(s => Model.LastNameM): @Html.DisplayFor(s => Model.LastNameM)<br>
+                    @Html.LabelFor(s => Model.RFC): @Html.DisplayFor(s => Model.RFC)<br>
+                    @Html.LabelFor(s => Model.CURP): @Html.DisplayFor(s => Model.CURP)<br>
+                    @Html.LabelFor(s => Model.MaritalStatus): @Html.DisplayFor(s => Model.MaritalStatus)<br>
+                </td>
+                <td>
+                    @if (Model.Vul1 > 0)
+                    {
+                        <img src="~/Images/Vulnerabilidades/acade.png" alt="@Html.DisplayFor(i => Model.Vul1)" width="30" height="30" />
+                    }
+                    @if (Model.Vul2 > 0)
+                    {
+                        <img src="~/Images/Vulnerabilidades/econo.png" alt="@Html.DisplayFor(i => Model.Vul2)" width="30" height="30" />
+                    }
+                    @if (Model.Vul3 > 0)
+                    {
+                        <img src="~/Images/Vulnerabilidades/psico.png" alt="@Html.DisplayFor(i => Model.Vul3)" width="30" height="30" />
+                    }
+                    @if (Model.Vul4 > 0)
+                    {
+                        <img src="~/Images/Vulnerabilidades/trans.png" alt="@Html.DisplayFor(i => Model.Vul4)" width="30" height="30" />
+                    }
+
+                    <hr />
+
+                    @if (Model.Vul1 > 0)
+                    {
+                        <text>Académica</text><br>
+                    }
+                    @if (Model.Vul2 > 0)
+                    {
+                        <text>Económica</text><br>
+                    }
+                    @if (Model.Vul3 > 0)
+                    {
+                        <text>Psicológica</text><br>
+                    }
+                    @if (Model.Vul4 > 0)
+                    {
+                        <text>Transporte</text><br>
+                    }
+
+                    <hr />
+
+                    <button type="button">Editar</button>
+
+                </td>
+
+            </tr>
+
+        </table>
+
+        <table border="1" style="margin; 0 auto; width: 100%">
+
+            <colgroup>
+                <col style="width: 20%" />
+                <col style="width: 20%" />
+            </colgroup>
+
+            <tr>
+                <th>
+                    Datos Académicos
+                </th>
+                <th>
+                    Datos de Contacto
+                </th>
+            </tr>
+
+            <tr>
+                <td>
+                    @Html.LabelFor(s => Model.Career): @Html.DisplayFor(s => Model.Career)<br>
+                    @Html.LabelFor(s => Model.Modality): @Html.DisplayFor(s => Model.Modality)<br>
+                    @Html.LabelFor(s => Model.Turn): @Html.DisplayFor(s => Model.Turn)<br>
+                    @Html.LabelFor(s => Model.Term): @Html.DisplayFor(s => Model.Term)<br>
+                    @Html.LabelFor(s => Model.Section): @Html.DisplayFor(s => Model.Section)<br>
+                    @Html.LabelFor(s => Model.Situation): @Html.DisplayFor(s => Model.Situation)<br>
+                </td>
+                <td>
+                    @Html.LabelFor(s => Model.EmergencyPhone): @Html.DisplayFor(s => Model.EmergencyPhone)<br>
+                    @Html.LabelFor(s => Model.PersonalPhone): @Html.DisplayFor(s => Model.PersonalPhone)<br>
+                    @Html.LabelFor(s => Model.PersonalEmail): @Html.DisplayFor(s => Model.PersonalEmail)<br>
+                    @Html.LabelFor(s => Model.AcademicEmail): @Html.DisplayFor(s => Model.AcademicEmail)<br>
+                </td>
+
+            </tr>
+
+        </table>
+
+        <hr />
+        
+        <table width="100">
+
+            <tr>
+                <th colspan="2" style="text-align:center">Materias Cursadas</th>
+            </tr>
+
+            @foreach (var materia in ViewBag.Materias)
+            {
+                <tr>
+                    <td style="text-align:left">
+                        @materia
+                    </td>
+                    <td>
+                        <button type="button" onclick="location.href='@Html.Raw(Url.Action("Course", "Students", new { materia = materia, registration = Model.Matricula }))'">Gráfica</button>
+                    </td>
+                </tr>
+            }
+        </table>
+
+    </div>
+</div>
