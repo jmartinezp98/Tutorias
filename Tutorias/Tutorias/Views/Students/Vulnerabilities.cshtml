@@ -1,0 +1,95 @@
+﻿@model Tutorias.ViewModels.VulnerabilitiesViewModel
+
+@{
+    ViewBag.Title = "Vulnerabilities";
+}
+
+<h2>Vulnerabilities</h2>
+
+@using (Html.BeginForm("Vulnerabilities", "Students", Model, FormMethod.Post))
+{
+    <fieldset>
+
+        <legend class="login" align="center">Vulnerabilidades</legend>
+
+
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+        @if (@ViewBag.Message != null)
+        {
+            <div style="border: 1px solid red">
+                @ViewBag.Message
+            </div>
+        }
+
+        @Html.HiddenFor(m => Model.Nombre)
+        @Html.HiddenFor(m => Model.Matricula)
+        <div align="center">
+            <div class="card card-signin my-5">
+                <div class="card-body">
+
+                    <table>
+                        <tr>
+                            <td><img src="~/Images/Vulnerabilidades/acade.png" alt="Académica" width="50" height="50" /></td>
+                            <td>@Html.LabelFor(m => Model.Vul1): </td>
+                            <td>
+                                No vulnerable @Html.RadioButtonFor(m => Model.Vul1, "0", new { disabled = "disabled" }) <br />
+                                Vulnerable @Html.RadioButtonFor(m => Model.Vul1, "1", new { disabled = "disabled" })
+                            </td>
+                            <td>
+                                @Html.TextAreaFor(m => Model.ComentsVul1, new { @class = "form-control" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><img src="~/Images/Vulnerabilidades/econo.png" alt="Económica" width="50" height="50" /></td>
+                            <td>@Html.LabelFor(m => Model.Vul2): </td>
+                            <td>
+                                No vulnerable @Html.RadioButtonFor(m => Model.Vul2, "0") <br />
+                                Vulnerable @Html.RadioButtonFor(m => Model.Vul2, "1")
+                            </td>
+                            <td>
+                                @Html.TextAreaFor(m => Model.ComentsVul2, new { @class = "form-control" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><img src="~/Images/Vulnerabilidades/psico.png" alt="Psicológica" width="50" height="50" /></td>
+                            <td>@Html.LabelFor(m => Model.Vul3): </td>
+                            <td>
+                                No vulnerable @Html.RadioButtonFor(m => Model.Vul3, "0") <br />
+                                Vulnerable @Html.RadioButtonFor(m => Model.Vul3, "1")
+                            </td>
+                            <td>
+                                @Html.TextAreaFor(m => Model.ComentsVul3, new { @class = "form-control" })
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><img src="~/Images/Vulnerabilidades/trans.png" alt="Transporte" width="50" height="50" /></td>
+                            <td>@Html.LabelFor(m => Model.Vul4): </td>
+                            <td>
+                                No vulnerable @Html.RadioButtonFor(m => Model.Vul4, "0") <br />
+                                Vulnerable @Html.RadioButtonFor(m => Model.Vul4, "1")
+                            </td>
+                            <td>
+                                @Html.TextAreaFor(m => Model.ComentsVul4, new { @class = "form-control" })
+                            </td>
+                        </tr>
+                    </table>
+
+                    <table>
+                        <tr>
+                            <td>
+                                <button id="btnEditar" class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" style="height:50px; width:200px;">Editar</button>
+                            </td>
+                            <td>
+                                <button type="button" onclick="location.href='@Html.Raw(Url.Action("RedirectToStudent", "Students", new { registration = Model.Matricula }))'">Regresar al estudiante</button>
+                            </td>
+                        </tr>
+                    </table>
+               
+
+                </div>
+            </div>
+        </div>
+
+    </fieldset>
+}

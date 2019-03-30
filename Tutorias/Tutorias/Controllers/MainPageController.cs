@@ -224,5 +224,26 @@ namespace Tutorias.Controllers
                 return RedirectToAction("Login", "Login");
             }
         }
+
+        public ActionResult Contact()
+        {
+            //a esta pagina solo se puede acceder si ha iniciado sesion
+            if (Session["UserGroup"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                //si no ses inicio sesion no se puede acceder a esta pagina
+                return RedirectToAction("Login", "Login");
+            }
+        }
+
+        public ActionResult Exit()
+        {
+            Session["UserGroup"] = null;
+            return RedirectToAction("Login", "Login");
+        }
+
     }
 }

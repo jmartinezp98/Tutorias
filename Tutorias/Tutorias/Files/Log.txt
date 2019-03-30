@@ -50,3 +50,19 @@ Metodo: Login -29/03/2019 12:14:40 p. m.- Entró el tutor con Usuario : Eriteach
 Metodo: Login -29/03/2019 12:19:51 p. m.- Entró el tutor con Usuario : Eriteach
 Metodo: Login -29/03/2019 12:24:08 p. m.- Entró el tutor con Usuario : Eriteach
 Metodo: Login -29/03/2019 12:27:59 p. m.- Entró el tutor con Usuario : Eriteach
+Metodo: Login -29/03/2019 12:38:41 p. m.- Entró el tutor con Usuario : Eriteach
+Metodo: Login -30/03/2019 02:08:46 p. m.- Entró el tutor con Usuario : Eriteach
+Metodo: Login -30/03/2019 02:50:24 p. m.- Entró el tutor con Usuario : Eriteach
+Metodo: Login -30/03/2019 03:03:52 p. m.- Entró el tutor con Usuario : Eriteach
+Metodo: Login -30/03/2019 03:14:47 p. m.- Entró el tutor con Usuario : Eriteach
+Metodo: MainPageVulnerabilitiesEdit -30/03/2019 03:15:58 p. m.- Se editaron las vulnerabilidades del estudiante con matrícula: 301710861
+Detalles: MainPageVulnerabilitiesEdit -30/03/2019 03:15:58 p. m.Vulnerabilidad académica status - 1 / Comentarios -Estudiante con NA en Sociocultural
+Detalles: MainPageVulnerabilitiesEdit -30/03/2019 03:15:58 p. m.Vulnerabilidad económica status - 1 / Comentarios -Beca tramitada
+Detalles: MainPageVulnerabilitiesEdit -30/03/2019 03:15:58 p. m.Vulnerabilidad psicológica status - 1 / Comentarios -Me cae mal :v me cae muy mal
+Detalles: MainPageVulnerabilitiesEdit -30/03/2019 03:15:58 p. m.Vulnerabilidad transporte status - 0 / Comentarios -
+Metodo: Login -30/03/2019 03:30:08 p. m.- Entró el tutor con Usuario : Eriteach
+Metodo: MainPageVulnerabilitiesEdit -30/03/2019 03:31:08 p. m.- Se editaron las vulnerabilidades del estudiante con matrícula: 301710730
+Detalles: MainPageVulnerabilitiesEdit -30/03/2019 03:31:08 p. m.Vulnerabilidad académica status - 0 / Comentarios -
+Detalles: MainPageVulnerabilitiesEdit -30/03/2019 03:31:08 p. m.Vulnerabilidad económica status - 0 / Comentarios -
+Detalles: MainPageVulnerabilitiesEdit -30/03/2019 03:31:08 p. m.Vulnerabilidad psicológica status - 0 / Comentarios -
+Detalles: MainPageVulnerabilitiesEdit -30/03/2019 03:31:08 p. m.Vulnerabilidad transporte status - 0 / Comentarios -

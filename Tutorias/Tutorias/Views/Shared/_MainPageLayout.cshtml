@@ -75,19 +75,16 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link menuBotones" href="@Url.Action("MainPage", "MainPage")">
-                            Inicio
-                            @*<span class="sr-only">(current)</span>*@
-                        </a>
+                        <a class="nav-link menuBotones" href="@Url.Action("MainPage", "MainPage")">Inicio</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link menuBotones" href="@Url.Action("Students", "Students")">Alumnos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link menuBotones" href="contact.html">Contacto</a>
+                        <a class="nav-link menuBotones" href="@Url.Action("Contact", "MainPage")">Contacto</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link menuBotones" href="login.html">Salir</a>
+                        <a class="nav-link menuBotones" href="@Url.Action("Exit", "MainPage")">Salir</a>
                     </li>
                 </ul>
             </div>

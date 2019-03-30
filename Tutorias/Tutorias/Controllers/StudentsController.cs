@@ -1,6 +1,8 @@
 ﻿using Highsoft.Web.Mvc.Charts;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Web;
@@ -14,7 +16,6 @@ namespace Tutorias.Controllers
     {
         public static TutoriasDbContext dbCtx = new TutoriasDbContext();
 
-        // GET: Students
         [HttpGet]
         public ActionResult Students()
         {
@@ -110,6 +111,7 @@ namespace Tutorias.Controllers
                 return RedirectToAction("Login", "Login");
             }
         }
+
 
         //Vamos a obtener como parametros la matricula del estudante selecionado 
         public ActionResult Student(StudentsViewModel student)
@@ -238,6 +240,92 @@ namespace Tutorias.Controllers
                 return RedirectToAction("Login", "Login");
             }
         }
+
+
+        public ActionResult RedirectToStudent(string registration)
+        {
+            if (Session["UserGroup"] != null)
+            {
+                //se guarda el grupo en una variable
+                string group = Session["UserGroup"].ToString();
+
+                //Como la vista del estudiante individual toma como parametro un StudentsViewModel entonces creamos uno para ponerle los datos
+                StudentsViewModel student = new StudentsViewModel();
+
+                //se guarda la matricula
+                student.Matricula = registration;
+
+                #region SE OBTIENE EL NOMBRE
+
+                //query para obtener el nombre y el id
+                var queryStudents = (from s in dbCtx.Students
+                                     where s.Registration == registration
+                                     select new
+                                     {
+                                         id = s.ID,
+                                         nombre = s.LastNameP + " " + s.LastNameM + " " + s.FirstMidName
+                                     }).SingleOrDefault();
+
+                //se agrega al studentsViewModel
+                student.Nombre = queryStudents.nombre;
+
+                #endregion
+
+                #region SE OBTIENEN LAS VULNERABILIDADES
+
+                //se realizan 4 queries para obtener el status de cada una de las vulnerabilidades
+                var queryVul1 = (from sv in dbCtx.StudentVulnerabilities
+                                 join s in dbCtx.Students on sv.StudentID equals s.ID
+                                 where sv.StudentID == queryStudents.id && sv.VulnerabilityID == 1
+                                 select new
+                                 {
+                                     vulnerabilities = sv.VulStatus
+                                 }).SingleOrDefault();
+                var queryVul2 = (from sv in dbCtx.StudentVulnerabilities
+                                 join s in dbCtx.Students on sv.StudentID equals s.ID
+                                 where sv.StudentID == queryStudents.id && sv.VulnerabilityID == 2
+                                 orderby sv.VulnerabilityID
+                                 select new
+                                 {
+                                     vulnerabilities = sv.VulStatus
+                                 }).SingleOrDefault();
+                var queryVul3 = (from sv in dbCtx.StudentVulnerabilities
+                                 join s in dbCtx.Students on sv.StudentID equals s.ID
+                                 where sv.StudentID == queryStudents.id && sv.VulnerabilityID == 3
+                                 orderby sv.VulnerabilityID
+                                 select new
+                                 {
+                                     vulnerabilities = sv.VulStatus
+                                 }).SingleOrDefault();
+                var queryVul4 = (from sv in dbCtx.StudentVulnerabilities
+                                 join s in dbCtx.Students on sv.StudentID equals s.ID
+                                 where sv.StudentID == queryStudents.id && sv.VulnerabilityID == 4
+                                 orderby sv.VulnerabilityID
+                                 select new
+                                 {
+                                     vulnerabilities = sv.VulStatus
+                                 }).SingleOrDefault();
+
+                //se agregan al StudentsViewModel
+                student.Vul1 = queryVul1.vulnerabilities;
+                student.Vul2 = queryVul2.vulnerabilities;
+                student.Vul3 = queryVul3.vulnerabilities;
+                student.Vul4 = queryVul4.vulnerabilities;
+
+                #endregion
+
+
+                //regresa una vista que lleva el studentsViewModelCreado
+                return RedirectToAction("Student", "Students", student);
+
+            }
+            else
+            {
+                //si no se ha hecho login entonces regresa al login
+                return RedirectToAction("Login", "Login");
+            }
+        }
+
 
         public ActionResult Course(string materia, string registration)
         {
@@ -385,7 +473,227 @@ namespace Tutorias.Controllers
         }
 
 
+        [HttpGet]
+        public ActionResult Vulnerabilities(StudentViewModel student)
+        {
+            //solo si se ha iniciado sesion
+            if (Session["UserGroup"] != null)
+            {
+                //se crea un student del viewModel
+                VulnerabilitiesViewModel objVulnerabilities = new VulnerabilitiesViewModel();
 
+                //se guarda el nombre y la matricula
+                objVulnerabilities.Nombre = student.Nombre;
+                objVulnerabilities.Matricula = student.Matricula;
+
+                //se guarda la matricula en una variable
+                string registration = student.Matricula;
+
+                #region GUARDAR VULNERABILIDADES YA CONSULTADAS
+
+                //convertimos a string para poder usarlas como radio buttons
+                objVulnerabilities.Vul1 = student.Vul1.ToString();
+                objVulnerabilities.Vul2 = student.Vul2.ToString();
+                objVulnerabilities.Vul3 = student.Vul3.ToString();
+                objVulnerabilities.Vul4 = student.Vul4.ToString();
+
+                #endregion
+
+                #region OBTENER COMENTARIOS DE VULNERABILIDADES
+
+                //se obtienen los comentarios de cada una de las vulnerabilidades
+                var queryVul1 = (from sv in dbCtx.StudentVulnerabilities
+                                 join s in dbCtx.Students on sv.StudentID equals s.ID
+                                 where s.Registration == registration && sv.VulnerabilityID == 1
+                                 select new
+                                 {
+                                     coments = sv.VulComments
+                                 }).SingleOrDefault();
+                var queryVul2 = (from sv in dbCtx.StudentVulnerabilities
+                                 join s in dbCtx.Students on sv.StudentID equals s.ID
+                                 where s.Registration == registration && sv.VulnerabilityID == 2
+                                 orderby sv.VulnerabilityID
+                                 select new
+                                 {
+                                     coments = sv.VulComments
+                                 }).SingleOrDefault();
+                var queryVul3 = (from sv in dbCtx.StudentVulnerabilities
+                                 join s in dbCtx.Students on sv.StudentID equals s.ID
+                                 where s.Registration == registration && sv.VulnerabilityID == 3
+                                 orderby sv.VulnerabilityID
+                                 select new
+                                 {
+                                     coments = sv.VulComments
+                                 }).SingleOrDefault();
+                var queryVul4 = (from sv in dbCtx.StudentVulnerabilities
+                                 join s in dbCtx.Students on sv.StudentID equals s.ID
+                                 where s.Registration == registration && sv.VulnerabilityID == 4
+                                 orderby sv.VulnerabilityID
+                                 select new
+                                 {
+                                     coments = sv.VulComments
+                                 }).SingleOrDefault();
+
+                //agregar valores de los comentarios
+                objVulnerabilities.ComentsVul1 = queryVul1.coments;
+                objVulnerabilities.ComentsVul2 = queryVul2.coments;
+                objVulnerabilities.ComentsVul3 = queryVul3.coments;
+                objVulnerabilities.ComentsVul4 = queryVul4.coments;
+
+                #endregion
+
+                //se retorna la vista
+                return View(objVulnerabilities);
+            }
+            else
+            {
+                //si no se ha hecho login entonces regresa al login
+                return RedirectToAction("Login", "Login");
+            }
+        }
+
+
+        [HttpPost]
+        public ActionResult Vulnerabilities(VulnerabilitiesViewModel newVulnerabilities)
+        {
+            //solo si se ha iniciado sesion
+            if (Session["UserGroup"] != null)
+            {
+                if (ModelState.IsValid)
+                {
+                    try
+                    {
+                        //Guardamos los nuevos valores en variables
+                        string registration = newVulnerabilities.Matricula;
+                        string nombre = newVulnerabilities.Nombre;
+                        int Vul1 = Convert.ToInt16(newVulnerabilities.Vul1);
+                        string ComentsVul1 = newVulnerabilities.ComentsVul1;
+                        int Vul2 = Convert.ToInt16(newVulnerabilities.Vul2);
+                        string ComentsVul2 = newVulnerabilities.ComentsVul2;
+                        int Vul3 = Convert.ToInt16(newVulnerabilities.Vul3);
+                        string ComentsVul3 = newVulnerabilities.ComentsVul3;
+                        int Vul4 = Convert.ToInt16(newVulnerabilities.Vul4);
+                        string ComentsVul4 = newVulnerabilities.ComentsVul4;
+
+
+                        //vamos a tener 4 edits para editar cada vulnerabilidad
+
+                        #region EDITAR VULNERABILIDAD ACADEMICA
+
+                        //Primero buscamos el registro de StudentsVulnerabilities que concuerde con la vulnerabilidad y el estudiante
+                        var queryVul1 = (from sv in dbCtx.StudentVulnerabilities
+                                         join s in dbCtx.Students on sv.StudentID equals s.ID
+                                         where s.Registration == registration && sv.VulnerabilityID == 1
+                                         select sv).SingleOrDefault();
+
+                        //se guardan los nuevos valores
+                        queryVul1.VulStatus = Vul1;
+                        queryVul1.VulComments = ComentsVul1;
+
+                        //se guardan los cambios
+                        dbCtx.Entry(queryVul1).State = EntityState.Modified;
+                        dbCtx.SaveChanges();
+
+                        #endregion
+
+                        #region EDITAR VULNERABILIDAD ECONOMICA
+
+                        var queryVul2 = (from sv in dbCtx.StudentVulnerabilities
+                                         join s in dbCtx.Students on sv.StudentID equals s.ID
+                                         where s.Registration == registration && sv.VulnerabilityID == 2
+                                         select sv).SingleOrDefault();
+
+                        //se guardan los nuevos valores
+                        queryVul2.VulStatus = Vul2;
+                        queryVul2.VulComments = ComentsVul2;
+
+                        //se guardan los cambios
+                        dbCtx.Entry(queryVul2).State = EntityState.Modified;
+                        dbCtx.SaveChanges();
+
+                        #endregion
+
+                        #region EDITAR VULNERABILIDAD PSICOLOGICA
+
+                        var queryVul3 = (from sv in dbCtx.StudentVulnerabilities
+                                         join s in dbCtx.Students on sv.StudentID equals s.ID
+                                         where s.Registration == registration && sv.VulnerabilityID == 3
+                                         select sv).SingleOrDefault();
+
+                        //se guardan los nuevos valores
+                        queryVul3.VulStatus = Vul3;
+                        queryVul3.VulComments = ComentsVul3;
+
+                        //se guardan los cambios
+                        dbCtx.Entry(queryVul3).State = EntityState.Modified;
+                        dbCtx.SaveChanges();
+
+                        #endregion
+
+                        #region EDITAR VULNERABILIDAD TRANSPORTE
+
+                        var queryVul4 = (from sv in dbCtx.StudentVulnerabilities
+                                         join s in dbCtx.Students on sv.StudentID equals s.ID
+                                         where s.Registration == registration && sv.VulnerabilityID == 4
+                                         select sv).SingleOrDefault();
+
+                        //se guardan los nuevos valores
+                        queryVul4.VulStatus = Vul4;
+                        queryVul4.VulComments = ComentsVul4;
+
+                        //se guardan los cambios
+                        dbCtx.Entry(queryVul4).State = EntityState.Modified;
+                        dbCtx.SaveChanges();
+
+                        #endregion
+
+                        #region LOG
+
+                        //Buscar la carpeta en el proyecto
+                        var pathLog = Server.MapPath("~") + @"Files";
+                        //nombre del archivo
+                        //como aparecia FilesLog.txt se le agregó la diagonal
+                        var fileName = "/Log.txt";
+
+                        StreamWriter sw = new StreamWriter(pathLog + fileName, true);
+                        //Permite escribir en el archivo .txt
+                        sw.WriteLine("Metodo: MainPageVulnerabilitiesEdit -" + DateTime.Now + "- Se editaron las vulnerabilidades del estudiante con matrícula: " + registration);
+                        sw.WriteLine("Detalles: MainPageVulnerabilitiesEdit -" + DateTime.Now + "Vulnerabilidad académica status - " + Vul1 + " / Comentarios -" + ComentsVul1);
+                        sw.WriteLine("Detalles: MainPageVulnerabilitiesEdit -" + DateTime.Now + "Vulnerabilidad económica status - " + Vul2 + " / Comentarios -" + ComentsVul2);
+                        sw.WriteLine("Detalles: MainPageVulnerabilitiesEdit -" + DateTime.Now + "Vulnerabilidad psicológica status - " + Vul3 + " / Comentarios -" + ComentsVul3);
+                        sw.WriteLine("Detalles: MainPageVulnerabilitiesEdit -" + DateTime.Now + "Vulnerabilidad transporte status - " + Vul4 + " / Comentarios -" + ComentsVul4);
+                        //cierra la conexion
+                        sw.Close();
+
+                        #endregion
+
+                        //para regresar a la vista de student se crea un STUDENTSviewModel
+                        StudentsViewModel RedirectStudent = new StudentsViewModel();
+                        RedirectStudent.Matricula = registration;
+                        RedirectStudent.Nombre = nombre;
+                        RedirectStudent.Vul1 = Vul1;
+                        RedirectStudent.Vul2 = Vul2;
+                        RedirectStudent.Vul3 = Vul3;
+                        RedirectStudent.Vul4 = Vul4;
+
+                        //se retorna la vista de estudiante
+                        return RedirectToAction("Student", "Students", RedirectStudent);
+                    }
+                    catch
+                    {
+                        //si no se guardaron los cambios regresa la misma vista
+                        return View(newVulnerabilities);
+                    }
+                }
+                //si el modelo no es valido regresa la misma vista
+                return View(newVulnerabilities);
+            }
+            else
+            {
+                //si no se ha hecho login entonces regresa al login
+                return RedirectToAction("Login", "Login");
+            }
+        }
 
     }
 }

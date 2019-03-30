@@ -108,7 +108,7 @@
     </tr>
     <tr>
         <td>
-            <button type="button">Regresar al estudiante</button>
+            <button type="button" onclick="location.href='@Html.Raw(Url.Action("RedirectToStudent", "Students", new { registration = TempData["Registration"].ToString() }))'">Regresar al estudiante</button>
         </td>
     </tr>
 </table>
