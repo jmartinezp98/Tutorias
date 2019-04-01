@@ -67,6 +67,7 @@ namespace Tutorias.Controllers
 
                 //se agrega al tutor
                 objTutor.EmployeeID = queryTutor.idEmpleado;
+                objTutor.Nombre = queryTutor.apellidoP + " " + queryTutor.apellidoM + " " + queryTutor.nombre;
                 objTutor.FirstMidName = queryTutor.nombre;
                 objTutor.LastNameP = queryTutor.apellidoP;
                 objTutor.LastNameM = queryTutor.apellidoM;

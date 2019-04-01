@@ -105,3 +105,8 @@ Detalles: MainPageVulnerabilitiesEdit -01/04/2019 01:27:40 p. m.Vulnerabilidad t
 Metodo: Login -01/04/2019 01:32:46 p. m.- Entró el tutor con Usuario : Eriteach
 Metodo: Login -01/04/2019 01:36:52 p. m.- Entró el tutor con Usuario : Eriteach
 Metodo: Login -01/04/2019 01:40:23 p. m.- Entró el tutor con Usuario : Eriteach
+Metodo: Login -01/04/2019 02:25:03 p. m.- Entró el tutor con Usuario : Eriteach
+Metodo: Login -01/04/2019 02:27:23 p. m.- Entró el tutor con Usuario : Eriteach
+Metodo: Login -01/04/2019 02:29:49 p. m.- Entró el tutor con Usuario : Eriteach
+Metodo: Login -01/04/2019 02:32:06 p. m.- Entró el tutor con Usuario : Eriteach
+Metodo: Login -01/04/2019 02:34:46 p. m.- Entró el tutor con Usuario : Eriteach

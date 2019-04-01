@@ -422,25 +422,25 @@ namespace Tutorias.Controllers
                             break;
 
                         case "NA":
-                            columna.name = "No aprobado";
+                            columna.name = "No Acreditado";
                             columna.color = "#FF0000";
                             columna.y = 0;
                             break;
 
                         case "8":
-                            columna.name = "Suficiente";
+                            columna.name = "Satisfactorio";
                             columna.color = "#FF8000";
                             columna.y = 1;
                             break;
 
                         case "9":
-                            columna.name = "Regular";
+                            columna.name = "Destacado";
                             columna.color = "#FFFF00";
                             columna.y = 2;
                             break;
 
                         case "10":
-                            columna.name = "Excelente";
+                            columna.name = "Autónomo";
                             columna.color = "#80FF00";
                             columna.y = 3;
                             break;

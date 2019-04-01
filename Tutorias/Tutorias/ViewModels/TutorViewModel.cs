@@ -12,6 +12,10 @@ namespace Tutorias.ViewModels
         [Display(Name = "Matricula de empleado")]
         public string EmployeeID { get; set; }
 
+        [Required(ErrorMessage = "The field Nombre is required")]
+        [Display(Name = "Nombre")]
+        public string Nombre { get; set; }
+
         [Required(ErrorMessage = "El campo FirstMidName es obligatorio")]
         [Display(Name = "Nombre")]
         public string FirstMidName { get; set; }
