@@ -2,113 +2,124 @@
 
 @{
     ViewBag.Title = Model.Materia;
+    Layout = "~/Views/Shared/_CourseLayout.cshtml";
 }
 
+<div align="center">
+    <div class="card card-signin my-5">
+        <div class="card-body">
 
-<table>
-    <tr>
-        <td>
-            <script src="http://code.highcharts.com/highcharts.js"></script>
-            <script src="http://code.highcharts.com/highcharts-3d.js"></script>
-            <script src="https://code.highcharts.com/modules/exporting.js"></script>
+            <table>
+                <tr>
+                    <td>
+                        <script src="http://code.highcharts.com/highcharts.js"></script>
+                        <script src="http://code.highcharts.com/highcharts-3d.js"></script>
+                        <script src="https://code.highcharts.com/modules/exporting.js"></script>
 
-            @using Highsoft.Web.Mvc.Charts
+                        @using Highsoft.Web.Mvc.Charts
 
-            @(Html.Highsoft().GetHighcharts(
-                        new Highcharts
-                        {
-                            Chart = new Highsoft.Web.Mvc.Charts.Chart
-                            {
+                        @(Html.Highsoft().GetHighcharts(
+                                                            new Highcharts
+                                                            {
+                                                                Chart = new Highsoft.Web.Mvc.Charts.Chart
+                                                                {
 
-                                Width = 800,
-                                Height = 600,
+                                                                    Width = 800,
+                                                                    Height = 600,
 
-                                Options3d = new ChartOptions3d
-                                {
-                                    Enabled = true,
-                                    Alpha = 10,
-                                    Beta = 25,
-                                    Depth = 70
-                                }
-                            },
-                            Title = new Title
-                            {
-                                Text = Model.Materia
-                            },
-                            Subtitle = new Subtitle
-                            {
-                                Text = "Instructor: " + Model.Maestro
-                            },
-                            Credits = new Credits
-                            {
-                                Enabled = false
-                            },
-                            PlotOptions = new PlotOptions
-                            {
-                                Column = new PlotOptionsColumn
-                                {
-                                    Depth = 25
-                                }
-                            },
-                            Tooltip = new Tooltip
-                            {
-                            //no se puede usar html
-                            Formatter = "function() { return this.x + ': ' + this.point.name; }"
-                            },
-                            XAxis = new List<XAxis>
-                            {
-                            new XAxis
-                            {
-                                Title = new XAxisTitle
-                                {
-                                    Text = null
-                                },
-                                Categories = @ViewData["Unidades"] as List<string>,
-                                Labels =
-                                {
-                                    Skew3d = true,
-                                    Style = new XAxisLabelsStyle
-                                    {
-                                        FontSize = "18px"
-                                    }
-                                }
-                            }
-                            },
-                            YAxis = new List<YAxis>
-                            {
-                            new YAxis
-                            {
-                                Title = new YAxisTitle
-                                {
-                                    Text = null
-                                },
-                                Max = +3,
-                                AllowDecimals = false,
-                                Categories = new List<string> { "NA", "8", "9", "10" },
-                                Labels = new YAxisLabels
-                                {
-                                    Position3d = YAxisLabelsPosition3d.Offset,
-                                    Formatter = "function() { return this.value; }"
-                                }
-                            }
-                            },
-                            Series = new List<Series>
-                            {
-                            new ColumnSeries
-                            {
-                                ShowInLegend = false,
-                                Name = "Calificacion",
-                                Data = @ViewData["Columnas"] as List<ColumnSeriesData>
-                            }
-                            }
-                        }
-                        , "chart")
-            )
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <button type="button" onclick="location.href='@Html.Raw(Url.Action("RedirectToStudent", "Students", new { registration = TempData["Registration"].ToString() }))'">Regresar al estudiante</button>
-        </td>
-    </tr>
-</table>
+                                                                    Options3d = new ChartOptions3d
+                                                                    {
+                                                                        Enabled = true,
+                                                                        Alpha = 10,
+                                                                        Beta = 25,
+                                                                        Depth = 70
+                                                                    }
+                                                                },
+                                                                Title = new Title
+                                                                {
+                                                                    Text = Model.Materia
+                                                                },
+                                                                Subtitle = new Subtitle
+                                                                {
+                                                                    Text = "Instructor: " + Model.Maestro
+                                                                },
+                                                                Credits = new Credits
+                                                                {
+                                                                    Enabled = false
+                                                                },
+                                                                PlotOptions = new PlotOptions
+                                                                {
+                                                                    Column = new PlotOptionsColumn
+                                                                    {
+                                                                        Depth = 25
+                                                                    }
+                                                                },
+                                                                Tooltip = new Tooltip
+                                                                {
+                                                                            //no se puede usar html
+                                                                            Formatter = "function() { return this.x + ': ' + this.point.name; }"
+                                                                },
+                                                                XAxis = new List<XAxis>
+                                                                {
+                                                                            new XAxis
+                                                                            {
+                                                                                Title = new XAxisTitle
+                                                                                {
+                                                                                    Text = null
+                                                                                },
+                                                                                Categories = @ViewData["Unidades"] as List<string>,
+                                                                                Labels =
+                                                                                {
+                                                                                    Skew3d = true,
+                                                                                    Style = new XAxisLabelsStyle
+                                                                                    {
+                                                                                        FontSize = "18px"
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                },
+                                                                YAxis = new List<YAxis>
+                                                                {
+                                                                            new YAxis
+                                                                            {
+                                                                                Title = new YAxisTitle
+                                                                                {
+                                                                                    Text = null
+                                                                                },
+                                                                                Max = +3,
+                                                                                AllowDecimals = false,
+                                                                                Categories = new List<string> { "NA", "8", "9", "10" },
+                                                                                Labels = new YAxisLabels
+                                                                                {
+                                                                                    Position3d = YAxisLabelsPosition3d.Offset,
+                                                                                    Formatter = "function() { return this.value; }"
+                                                                                }
+                                                                            }
+                                                                },
+                                                                Series = new List<Series>
+                                                                {
+                                                                            new ColumnSeries
+                                                                            {
+                                                                                ShowInLegend = false,
+                                                                                Name = "Calificacion",
+                                                                                Data = @ViewData["Columnas"] as List<ColumnSeriesData>
+                                                                            }
+                                                                }
+                                                            }
+                                                            , "chart")
+                        )
+                    </td>
+                </tr>
+
+            </table>
+
+            <hr />
+
+            <button class="btn btn-lg btn-primary btn-block text-uppercase"  style="height:50px; width:200px;" type="button" onclick="location.href='@Html.Raw(Url.Action("RedirectToStudent", "Students", new { registration = TempData["Registration"].ToString() }))'">Regresar al estudiante</button>
+
+        </div>
+        
+    </div>
+    
+</div>
+            

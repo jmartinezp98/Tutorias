@@ -66,3 +66,5 @@ Detalles: MainPageVulnerabilitiesEdit -30/03/2019 03:31:08 p. m.Vulnerabilidad a
 Detalles: MainPageVulnerabilitiesEdit -30/03/2019 03:31:08 p. m.Vulnerabilidad económica status - 0 / Comentarios -
 Detalles: MainPageVulnerabilitiesEdit -30/03/2019 03:31:08 p. m.Vulnerabilidad psicológica status - 0 / Comentarios -
 Detalles: MainPageVulnerabilitiesEdit -30/03/2019 03:31:08 p. m.Vulnerabilidad transporte status - 0 / Comentarios -
+Metodo: Login -01/04/2019 08:32:09 a. m.- Entró el tutor con Usuario : Eriteach
+Metodo: Login -01/04/2019 08:46:15 a. m.- Entró el tutor con Usuario : Eriteach

@@ -177,6 +177,7 @@
     <Compile Include="ViewModels\VulnerabilitiesViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\Backgrounds\CoursePage.jpg" />
     <Content Include="Images\Backgrounds\MainPage.jpg" />
     <Content Include="Images\Backgrounds\StudentsPage.jpg" />
     <Content Include="Images\Backgrounds\ute.jpg" />
@@ -362,6 +363,7 @@
     <Content Include="Views\Students\Course.cshtml" />
     <Content Include="Views\Students\Vulnerabilities.cshtml" />
     <Content Include="Views\MainPage\Contact.cshtml" />
+    <Content Include="Views\Shared\_CourseLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
