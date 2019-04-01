@@ -68,3 +68,29 @@ Detalles: MainPageVulnerabilitiesEdit -30/03/2019 03:31:08 p. m.Vulnerabilidad p
 Detalles: MainPageVulnerabilitiesEdit -30/03/2019 03:31:08 p. m.Vulnerabilidad transporte status - 0 / Comentarios -
 Metodo: Login -01/04/2019 08:32:09 a. m.- Entró el tutor con Usuario : Eriteach
 Metodo: Login -01/04/2019 08:46:15 a. m.- Entró el tutor con Usuario : Eriteach
+Metodo: Login -01/04/2019 09:23:47 a. m.- Entró el tutor con Usuario : Eriteach
+Metodo: MainPageVulnerabilitiesEdit -01/04/2019 09:25:27 a. m.- Se editaron las vulnerabilidades del estudiante con matrícula: 301710656
+Detalles: MainPageVulnerabilitiesEdit -01/04/2019 09:25:27 a. m.Vulnerabilidad académica status - 0 / Comentarios -
+Detalles: MainPageVulnerabilitiesEdit -01/04/2019 09:25:27 a. m.Vulnerabilidad económica status - 0 / Comentarios -
+Detalles: MainPageVulnerabilitiesEdit -01/04/2019 09:25:27 a. m.Vulnerabilidad psicológica status - 1 / Comentarios -
+Detalles: MainPageVulnerabilitiesEdit -01/04/2019 09:25:27 a. m.Vulnerabilidad transporte status - 0 / Comentarios -
+Metodo: Login -01/04/2019 09:35:17 a. m.- Entró el tutor con Usuario : Eriteach
+Metodo: Login -01/04/2019 09:43:05 a. m.- Entró el tutor con Usuario : Eriteach
+Metodo: Login -01/04/2019 09:56:01 a. m.- Entró el tutor con Usuario : Eriteach
+Metodo: Login -01/04/2019 10:02:03 a. m.- Entró el tutor con Usuario : Eriteach
+Metodo: Login -01/04/2019 10:04:40 a. m.- Entró el tutor con Usuario : Eriteach
+Metodo: Login -01/04/2019 10:10:34 a. m.- Entró el tutor con Usuario : Eriteach
+Metodo: Login -01/04/2019 10:14:38 a. m.- Entró el tutor con Usuario : Eriteach
+Metodo: Login -01/04/2019 10:17:38 a. m.- Entró el tutor con Usuario : Eriteach
+Metodo: Login -01/04/2019 10:20:47 a. m.- Entró el tutor con Usuario : Eriteach
+Metodo: Login -01/04/2019 10:25:23 a. m.- Entró el tutor con Usuario : Eriteach
+Metodo: Login -01/04/2019 10:30:47 a. m.- Entró el tutor con Usuario : Eriteach
+Metodo: Login -01/04/2019 10:33:07 a. m.- Entró el tutor con Usuario : Eriteach
+Metodo: Login -01/04/2019 10:42:53 a. m.- Entró el tutor con Usuario : Eriteach
+Metodo: Login -01/04/2019 10:54:44 a. m.- Entró el tutor con Usuario : Eriteach
+Metodo: MainPageVulnerabilitiesEdit -01/04/2019 10:56:33 a. m.- Se editaron las vulnerabilidades del estudiante con matrícula: 301710656
+Detalles: MainPageVulnerabilitiesEdit -01/04/2019 10:56:33 a. m.Vulnerabilidad académica status - 0 / Comentarios -
+Detalles: MainPageVulnerabilitiesEdit -01/04/2019 10:56:33 a. m.Vulnerabilidad económica status - 0 / Comentarios -
+Detalles: MainPageVulnerabilitiesEdit -01/04/2019 10:56:33 a. m.Vulnerabilidad psicológica status - 1 / Comentarios -Lifiveeeeeeee
+Detalles: MainPageVulnerabilitiesEdit -01/04/2019 10:56:33 a. m.Vulnerabilidad transporte status - 0 / Comentarios -
+Metodo: Login -01/04/2019 11:01:46 a. m.- Entró el tutor con Usuario : Eriteach

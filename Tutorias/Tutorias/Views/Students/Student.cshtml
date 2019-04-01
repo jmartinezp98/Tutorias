@@ -86,7 +86,7 @@
 
                     <hr />
 
-                    <button type="button" onclick="location.href='@Url.Action("Vulnerabilities", "Students", Model)'">Editar</button>
+                    <button class="button" style="vertical-align:middle" onclick="location.href='@Url.Action("Vulnerabilities", "Students", Model)'"><span>VER</span></button>
 
                 </td>
 
@@ -145,7 +145,7 @@
                         @materia
                     </td>
                     <td>
-                        <button type="button" onclick="location.href='@Html.Raw(Url.Action("Course", "Students", new { materia = materia, registration = Model.Matricula }))'">Gráfica</button>
+                        <button class="button" style="vertical-align:middle" onclick="location.href='@Html.Raw(Url.Action("Course", "Students", new { materia = materia, registration = Model.Matricula }))'"><span>Gráfica</span></button>
                     </td>
                 </tr>
             }

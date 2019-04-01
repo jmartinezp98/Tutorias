@@ -2,15 +2,16 @@
 
 @{
     ViewBag.Title = "Vulnerabilidades";
+    Layout = "~/Views/Shared/_VulnerabilitiesLayout.cshtml";
 }
 
-<h2>Vulnerabilities</h2>
+
 
 @using (Html.BeginForm("Vulnerabilities", "Students", Model, FormMethod.Post))
 {
     <fieldset>
 
-        <legend class="login" align="center">Vulnerabilidades</legend>
+        
 
 
         @Html.AntiForgeryToken()
@@ -25,11 +26,22 @@
         @Html.HiddenFor(m => Model.Nombre)
         @Html.HiddenFor(m => Model.Matricula)
         <div align="center">
-            <div class="card card-signin my-5">
-                <div class="card-body">
-
+            <div class="card border-0 shadow my-5">
+                <div class="card-body p-5">
+                    <h1 class="card-title text-center">Vulnerabilidades</h1>
+                    <hr />
                     <table>
+                        <colgroup>
+                        <col width="100">
+                        <col width="100" style="text-align: center">
+                        <col width="100">
+                        <col width="300">
+                        </colgroup>
                         <tr>
+                            <th colspan="4"></th>
+                        </tr>
+
+                        <tr height="80">
                             <td><img src="~/Images/Vulnerabilidades/acade.png" alt="Académica" width="50" height="50" /></td>
                             <td>@Html.LabelFor(m => Model.Vul1): </td>
                             <td>
@@ -40,7 +52,7 @@
                                 @Html.TextAreaFor(m => Model.ComentsVul1, new { @class = "form-control" })
                             </td>
                         </tr>
-                        <tr>
+                        <tr height="80">
                             <td><img src="~/Images/Vulnerabilidades/econo.png" alt="Económica" width="50" height="50" /></td>
                             <td>@Html.LabelFor(m => Model.Vul2): </td>
                             <td>
@@ -51,7 +63,7 @@
                                 @Html.TextAreaFor(m => Model.ComentsVul2, new { @class = "form-control" })
                             </td>
                         </tr>
-                        <tr>
+                        <tr height="80">
                             <td><img src="~/Images/Vulnerabilidades/psico.png" alt="Psicológica" width="50" height="50" /></td>
                             <td>@Html.LabelFor(m => Model.Vul3): </td>
                             <td>
@@ -62,7 +74,7 @@
                                 @Html.TextAreaFor(m => Model.ComentsVul3, new { @class = "form-control" })
                             </td>
                         </tr>
-                        <tr>
+                        <tr height="80">
                             <td><img src="~/Images/Vulnerabilidades/trans.png" alt="Transporte" width="50" height="50" /></td>
                             <td>@Html.LabelFor(m => Model.Vul4): </td>
                             <td>
@@ -75,17 +87,29 @@
                         </tr>
                     </table>
 
-                    <table>
+                    <hr />
+
+                    <table align="center">
+
+                        <colgroup>
+                            <col width="300">
+                            <col width="300">
+                         
+                        </colgroup>
+
                         <tr>
-                            <td>
+                            
+                            <td align="center">
+                                <button class="btn btn-lg btn-primary btn-block text-uppercase" style="height:50px; width:200px;" type="button" onclick="location.href='@Html.Raw(Url.Action("RedirectToStudent", "Students", new { registration = Model.Matricula }))'">Regresar al estudiante</button>
+
+                            </td>
+                            <td  align="center">
                                 <button id="btnEditar" class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" style="height:50px; width:200px;">Editar</button>
                             </td>
-                            <td>
-                                <button type="button" onclick="location.href='@Html.Raw(Url.Action("RedirectToStudent", "Students", new { registration = Model.Matricula }))'">Regresar al estudiante</button>
-                            </td>
+                            
                         </tr>
                     </table>
-               
+
 
                 </div>
             </div>

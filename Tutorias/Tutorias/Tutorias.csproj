@@ -135,7 +135,6 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MainPageController.cs" />
     <Compile Include="Controllers\StudentsController.cs" />
@@ -180,7 +179,7 @@
     <Content Include="Images\Backgrounds\CoursePage.jpg" />
     <Content Include="Images\Backgrounds\MainPage.jpg" />
     <Content Include="Images\Backgrounds\StudentsPage.jpg" />
-    <Content Include="Images\Backgrounds\ute.jpg" />
+    <Content Include="Images\Backgrounds\LoginPage.jpg" />
     <Content Include="bin\Antlr3.Runtime.dll" />
     <Content Include="bin\Antlr3.Runtime.pdb" />
     <Content Include="bin\EntityFramework.dll" />
@@ -260,6 +259,8 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Images\Backgrounds\VulnerabilitiesPage.jpg" />
+    <Content Include="Images\Logo\final_logo.ico" />
     <Content Include="Scripts\data.js" />
     <Content Include="Scripts\drilldown.js" />
     <Content Include="Scripts\highcharts.js" />
@@ -349,9 +350,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Shared\_LoginLayout.cshtml" />
     <Content Include="Views\MainPage\MainPage.cshtml" />
@@ -364,6 +362,7 @@
     <Content Include="Views\Students\Vulnerabilities.cshtml" />
     <Content Include="Views\MainPage\Contact.cshtml" />
     <Content Include="Views\Shared\_CourseLayout.cshtml" />
+    <Content Include="Views\Shared\_VulnerabilitiesLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

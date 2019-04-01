@@ -16,13 +16,13 @@ namespace Tutorias.ViewModels
         [Display(Name = "Nombre")]
         public string Nombre { get; set; }
 
-        [Display(Name = "Academica")]
+        [Display(Name = "Académica")]
         public string Vul1 { get; set; }
 
-        [Display(Name = "Economica")]
+        [Display(Name = "Económica")]
         public string Vul2 { get; set; }
 
-        [Display(Name = "Psicologica")]
+        [Display(Name = "Psicológica")]
         public string Vul3 { get; set; }
 
         [Display(Name = "Transporte")]
