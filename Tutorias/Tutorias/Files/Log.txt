@@ -94,3 +94,14 @@ Detalles: MainPageVulnerabilitiesEdit -01/04/2019 10:56:33 a. m.Vulnerabilidad e
 Detalles: MainPageVulnerabilitiesEdit -01/04/2019 10:56:33 a. m.Vulnerabilidad psicológica status - 1 / Comentarios -Lifiveeeeeeee
 Detalles: MainPageVulnerabilitiesEdit -01/04/2019 10:56:33 a. m.Vulnerabilidad transporte status - 0 / Comentarios -
 Metodo: Login -01/04/2019 11:01:46 a. m.- Entró el tutor con Usuario : Eriteach
+Metodo: Login -01/04/2019 11:24:42 a. m.- Entró el tutor con Usuario : Eriteach
+Metodo: Login -01/04/2019 01:16:41 p. m.- Entró el tutor con Usuario : Eriteach
+Metodo: Login -01/04/2019 01:24:48 p. m.- Entró el tutor con Usuario : Eriteach
+Metodo: MainPageVulnerabilitiesEdit -01/04/2019 01:27:40 p. m.- Se editaron las vulnerabilidades del estudiante con matrícula: 301710861
+Detalles: MainPageVulnerabilitiesEdit -01/04/2019 01:27:40 p. m.Vulnerabilidad académica status - 1 / Comentarios -Estudiante con NA en alguna unidad
+Detalles: MainPageVulnerabilitiesEdit -01/04/2019 01:27:40 p. m.Vulnerabilidad económica status - 1 / Comentarios -Beca tramitada
+Detalles: MainPageVulnerabilitiesEdit -01/04/2019 01:27:40 p. m.Vulnerabilidad psicológica status - 0 / Comentarios -
+Detalles: MainPageVulnerabilitiesEdit -01/04/2019 01:27:40 p. m.Vulnerabilidad transporte status - 1 / Comentarios -me cae mal :v
+Metodo: Login -01/04/2019 01:32:46 p. m.- Entró el tutor con Usuario : Eriteach
+Metodo: Login -01/04/2019 01:36:52 p. m.- Entró el tutor con Usuario : Eriteach
+Metodo: Login -01/04/2019 01:40:23 p. m.- Entró el tutor con Usuario : Eriteach

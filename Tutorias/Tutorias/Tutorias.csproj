@@ -176,6 +176,7 @@
     <Compile Include="ViewModels\VulnerabilitiesViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\Backgrounds\ContactPage.jpg" />
     <Content Include="Images\Backgrounds\CoursePage.jpg" />
     <Content Include="Images\Backgrounds\MainPage.jpg" />
     <Content Include="Images\Backgrounds\StudentsPage.jpg" />
@@ -261,6 +262,9 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Images\Backgrounds\VulnerabilitiesPage.jpg" />
     <Content Include="Images\Logo\final_logo.ico" />
+    <Content Include="Images\RedesSociales\facebook_logo.png" />
+    <Content Include="Images\RedesSociales\instagram_logo.png" />
+    <Content Include="Images\RedesSociales\youtube_logo.png" />
     <Content Include="Scripts\data.js" />
     <Content Include="Scripts\drilldown.js" />
     <Content Include="Scripts\highcharts.js" />
@@ -363,6 +367,7 @@
     <Content Include="Views\MainPage\Contact.cshtml" />
     <Content Include="Views\Shared\_CourseLayout.cshtml" />
     <Content Include="Views\Shared\_VulnerabilitiesLayout.cshtml" />
+    <Content Include="Views\Shared\_ContactLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
