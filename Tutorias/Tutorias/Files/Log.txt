@@ -110,3 +110,25 @@ Metodo: Login -01/04/2019 02:27:23 p. m.- Entró el tutor con Usuario : Eriteach
 Metodo: Login -01/04/2019 02:29:49 p. m.- Entró el tutor con Usuario : Eriteach
 Metodo: Login -01/04/2019 02:32:06 p. m.- Entró el tutor con Usuario : Eriteach
 Metodo: Login -01/04/2019 02:34:46 p. m.- Entró el tutor con Usuario : Eriteach
+Metodo: Login -01/04/2019 02:40:25 p. m.- Entró el tutor con Usuario : Eriteach
+Metodo: Login -01/04/2019 02:50:34 p. m.- Entró el tutor con Usuario : Eriteach
+Metodo: MainPageVulnerabilitiesEdit -01/04/2019 02:57:19 p. m.- Se editaron las vulnerabilidades del estudiante con matrícula: 301710861
+Detalles: MainPageVulnerabilitiesEdit -01/04/2019 02:57:19 p. m.Vulnerabilidad académica status - 1 / Comentarios -Estudiante con NA en Sociocultural
+Detalles: MainPageVulnerabilitiesEdit -01/04/2019 02:57:19 p. m.Vulnerabilidad económica status - 0 / Comentarios -
+Detalles: MainPageVulnerabilitiesEdit -01/04/2019 02:57:19 p. m.Vulnerabilidad psicológica status - 0 / Comentarios -
+Detalles: MainPageVulnerabilitiesEdit -01/04/2019 02:57:19 p. m.Vulnerabilidad transporte status - 1 / Comentarios -Vive lejos de la UTE
+Metodo: Login -02/04/2019 10:51:10 a. m.- Entró el tutor con Usuario : Eriteach
+Metodo: Login -02/04/2019 11:20:32 a. m.- Entró el tutor con Usuario : Eriteach
+Metodo: MainPageVulnerabilitiesEdit -02/04/2019 11:20:33 a. m.- Se editó la vulnerabilidad academica del estudiante: Ricardo Esquivel Ramirez
+Metodo: MainPageVulnerabilitiesEdit -02/04/2019 11:20:33 a. m.- Se editó la vulnerabilidad academica del estudiante: Jesús Alejandro Gomez Vargas
+Metodo: MainPageVulnerabilitiesEdit -02/04/2019 11:20:33 a. m.- Se editó la vulnerabilidad academica del estudiante: Luis Daniel Hernández Ontiveros
+Metodo: MainPageVulnerabilitiesEdit -02/04/2019 11:20:34 a. m.- Se editó la vulnerabilidad academica del estudiante: Esdras Yahir Lopez Quiroz
+Metodo: MainPageVulnerabilitiesEdit -02/04/2019 11:20:34 a. m.- Se editó la vulnerabilidad academica del estudiante: Jonathan Martínez Puga
+Metodo: MainPageVulnerabilitiesEdit -02/04/2019 11:20:34 a. m.- Se editó la vulnerabilidad academica del estudiante: José Francisco Pérez Marfileño
+Metodo: MainPageVulnerabilitiesEdit -02/04/2019 11:20:35 a. m.- Se editó la vulnerabilidad academica del estudiante: Carlos Alberto Rodriguez Carrizales
+Metodo: MainPageVulnerabilitiesEdit -02/04/2019 11:20:35 a. m.- Se editó la vulnerabilidad academica del estudiante: Edson Daniel Villarreal Hernández
+Metodo: MainPageVulnerabilitiesEdit -02/04/2019 11:24:34 a. m.- Se editaron las vulnerabilidades del estudiante con matrícula: 301710861
+Detalles: MainPageVulnerabilitiesEdit -02/04/2019 11:24:34 a. m.Vulnerabilidad académica status - 1 / Comentarios -Estudiante con NA en alguna unidad
+Detalles: MainPageVulnerabilitiesEdit -02/04/2019 11:24:34 a. m.Vulnerabilidad económica status - 1 / Comentarios -Beca tramitada
+Detalles: MainPageVulnerabilitiesEdit -02/04/2019 11:24:34 a. m.Vulnerabilidad psicológica status - 0 / Comentarios -
+Detalles: MainPageVulnerabilitiesEdit -02/04/2019 11:24:34 a. m.Vulnerabilidad transporte status - 1 / Comentarios -Vive lejos de la UTE
