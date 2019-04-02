@@ -261,7 +261,9 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Images\Backgrounds\VulnerabilitiesPage.jpg" />
+    <Content Include="Images\CURP\HEOL910406HNLRNS02.jpg" />
     <Content Include="Images\Logo\final_logo.ico" />
+    <Content Include="Images\Matrícula\301711037.jpg" />
     <Content Include="Images\RedesSociales\facebook_logo.png" />
     <Content Include="Images\RedesSociales\instagram_logo.png" />
     <Content Include="Images\RedesSociales\youtube_logo.png" />
